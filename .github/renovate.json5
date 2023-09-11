@@ -1,0 +1,79 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "timezone": "Asia/Tokyo", // Scheduleのタイムゾーンを設定
+    "extends": [
+        "config:base", // ref: https://github.com/renovatebot/presets/blob/master/src/config.js
+        ":prHourlyLimitNone", // 1時間で作れるPR数の制限を外す
+    ],
+    "schedule": [
+        // 平日午前10時から午後7時までの間にアップデート
+        "after 10:00am and before 7:00pm every weekday"
+    ],
+    "rangeStrategy": "update-lockfile", // 範囲内の場合は、アップデートできる範囲でアップデート or 範囲外の場合は、新しいものに置き換えてアップデート
+    "major": {
+        "enabled": false, // majorはアップデートしない(PRすら作成しない)
+    },
+    "labels": ["other", "dependencies"], // ルール以外のもので major ではないものが検知された場合のラベリング
+    "packageRules": [
+        // PHP(Composer)
+        {
+            "enabled": true,
+            "automerge": false,
+            "matchManagers": ["composer"],
+            "matchDepTypes": ["require"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
+            "groupName": "composer",
+            "labels": ["composer", "server", "dependencies"],
+            "assignees": ["@hassyadai-kokada"], // 自動マージしない場合は担当者をアサインする
+        },
+        {
+            "enabled": true,
+            "automerge": false,
+            "matchManagers": ["composer"],
+            "matchDepTypes": ["require-dev"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
+            "groupName": "composer-dev",
+            "labels": ["composer-dev", "server", "dependencies"],
+            "assignees": ["@hassyadai-kokada"], // 自動マージしない場合は担当者をアサインする
+        },
+
+        // Javascript(NPM)
+        {
+            "enabled": true,
+            "automerge": false,
+            "matchManagers": ["npm"],
+            "matchDepTypes": ["dependencies"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
+            "groupName": "npm",
+            "labels": ["npm", "front", "dependencies"],
+            "assignees": ["@hassyadai-kokada"], // 自動マージしない場合は担当者をアサインする
+        },
+        {
+            "enabled": true,
+            "automerge": false,
+            "matchManagers": ["npm"],
+            "matchDepTypes": ["devDependencies", "volta"], // ref: https://docs.renovatebot.com/modules/manager/npm/#additional-information
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
+            "groupName": "npm-dev",
+            "labels": ["npm-dev", "front", "dependencies"],
+            "assignees": ["@hassyadai-kokada"], // 自動マージしない場合は担当者をアサインする
+        },
+
+        // GitHub Actions
+        {
+            "enabled": true,
+            "automerge": false,
+            "matchPaths": [".github/**"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
+            "groupName": "github-actions",
+            "labels": ["github-action", "ci", "dependencies"],
+            "assignees": ["@hassyadai-kokada"], // 自動マージしない場合は担当者をアサインする
+        },
+    ],
+    // 脆弱性が検知された場合(スケジュール設定と関係なくアップデートされる)
+    "vulnerabilityAlerts": {
+        "labels": ["vulnerabilities", "dependencies"],
+        "automerge": false,
+        "assignees": ["@hassyadai-kokada"], // 自動マージしない場合は担当者をアサインする
+    },
+}
