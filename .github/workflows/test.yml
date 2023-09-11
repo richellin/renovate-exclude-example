@@ -16,7 +16,7 @@ jobs:
       contents: read
     services:
       mysql:
-        image: mysql:8.0 # target to exclude
+        image: mysql:8.1 # target to exclude
         ports:
           - 3306:3306
         options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
