@@ -59,17 +59,17 @@
             "assignees": ["@richellin"], // 自動マージしない場合は担当者をアサインする
         },
 
-        // // GitHub Actions
-        // {
-        //     "enabled": true,
-        //     "automerge": false,
-        //     "matchPaths": [".github/**"],
-        //     "matchDatasources": ["github-tags"],
-        //     "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
-        //     "groupName": "github-actions",
-        //     "labels": ["github-action", "ci", "dependencies"],
-        //     "assignees": ["@richellin"], // 自動マージしない場合は担当者をアサインする
-        // },
+        // GitHub Actions
+        {
+            "enabled": true,
+            "automerge": false,
+            "matchPaths": [".github/**"],
+            "matchDatasources": ["github-tags"],
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
+            "groupName": "github-actions",
+            "labels": ["github-action", "ci", "dependencies"],
+            "assignees": ["@richellin"], // 自動マージしない場合は担当者をアサインする
+        },
     ],
     // 脆弱性が検知された場合(スケジュール設定と関係なくアップデートされる)
     "vulnerabilityAlerts": {
