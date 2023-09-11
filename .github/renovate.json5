@@ -64,7 +64,7 @@
             "enabled": true,
             "automerge": false,
             "matchPaths": [".github/**"],
-            "excludeDepNames": ["mysql"],
+            "excludePackagePrefixes": ["mysql"],
             "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
             "groupName": "github-actions",
             "labels": ["github-action", "ci", "dependencies"],
