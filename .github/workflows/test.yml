@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  renovate-exclude-test:
+  exclude-mysql:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -36,4 +36,18 @@ jobs:
       - name: create databases
         run: |
           mysql --defaults-extra-file=.github/mysql-dbaccess.cnf -h 127.0.0.1 --get-server-public-key --port 3306 -e 'CREATE DATABASE IF NOT EXISTS testtest CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;'
+          echo done
+  exclude-php:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shivammathur/setup-php@5aa416d77b0ac6a16af87d8bfc23819288844fd0
+        with:
+          php-version: '8.1'
+          coverage: none # jit有効化に必要
+          ini-values: opcache.enable_cli=1
+          tools: phpcs, cs2pr
+      - uses: actions/checkout@v4
+      - name: php version
+        run: |
+          php --version
           echo done
