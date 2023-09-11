@@ -5,10 +5,10 @@
         "config:base", // ref: https://github.com/renovatebot/presets/blob/master/src/config.js
         ":prHourlyLimitNone", // 1時間で作れるPR数の制限を外す
     ],
-    "schedule": [
-        // 平日午前10時から午後7時までの間にアップデート
-        "after 10:00am and before 7:00pm every weekday"
-    ],
+    // "schedule": [
+    //     // 平日午前10時から午後7時までの間にアップデート
+    //     "after 10:00am and before 7:00pm every weekday"
+    // ],
     "rangeStrategy": "update-lockfile", // 範囲内の場合は、アップデートできる範囲でアップデート or 範囲外の場合は、新しいものに置き換えてアップデート
     "major": {
         "enabled": false, // majorはアップデートしない(PRすら作成しない)
