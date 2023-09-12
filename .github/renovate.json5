@@ -14,7 +14,7 @@
         "enabled": false, // majorはアップデートしない(PRすら作成しない)
     },
     "labels": ["other", "dependencies"], // ルール以外のもので major ではないものが検知された場合のラベリング
-    "ignoreDeps": ["mysql"]
+    "ignoreDeps": ["mysql"],
     "packageRules": [
         // PHP(Composer)
         {
