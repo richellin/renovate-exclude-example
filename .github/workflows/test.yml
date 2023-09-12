@@ -40,7 +40,8 @@ jobs:
   exclude-php:
     runs-on: ubuntu-latest
     steps:
-      - uses: shivammathur/setup-php@c5fc0d8281aba02c7fda07d3a70cc5371548067d
+      # - uses: shivammathur/setup-php@c5fc0d8281aba02c7fda07d3a70cc5371548067d
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
           coverage: none # jit有効化に必要
