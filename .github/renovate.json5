@@ -16,7 +16,7 @@
     "labels": ["other", "dependencies"], // ルール以外のもので major ではないものが検知された場合のラベリング
     "ignoreDeps": [
         "mysql",
-        "laravel/framework", // laravelを除外する
+        // "laravel/framework", // ignore v8.83.26 -> v8.83.27
     ],
     "packageRules": [
         // PHP(Composer)
