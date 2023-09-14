@@ -1,0 +1,12 @@
+{
+    "name": "test",
+    "type": "project",
+    "description": "test",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1.11"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.7"
+    }
+}
