@@ -16,7 +16,7 @@
     "labels": ["other", "dependencies"], // ルール以外のもので major ではないものが検知された場合のラベリング
     "ignoreDeps": [
         "mysql",
-        // "laravel/framework", // ignore v8.83.26 -> v8.83.27
+        "laravel/framework", // ignore v8.83.26 -> v8.83.27
     ],
     "packageRules": [
         // PHP(Composer)
@@ -26,7 +26,6 @@
             "matchManagers": ["composer"],
             "matchDepTypes": ["require"],
             "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
-            "excludeDepNames": ["laravel/framework"],
             "groupName": "composer",
             "labels": ["composer", "server", "dependencies"],
             "assignees": ["@richellin"], // 自動マージしない場合は担当者をアサインする
