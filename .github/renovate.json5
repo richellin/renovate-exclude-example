@@ -26,6 +26,7 @@
             "matchManagers": ["composer"],
             "matchDepTypes": ["require"],
             "matchUpdateTypes": ["minor", "patch", "pin", "digest"], // majorは対象としない
+            "excludeDepNames": ["laravel/framework"],
             "groupName": "composer",
             "labels": ["composer", "server", "dependencies"],
             "assignees": ["@richellin"], // 自動マージしない場合は担当者をアサインする
