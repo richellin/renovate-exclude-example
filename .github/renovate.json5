@@ -14,7 +14,10 @@
         "enabled": false, // majorはアップデートしない(PRすら作成しない)
     },
     "labels": ["other", "dependencies"], // ルール以外のもので major ではないものが検知された場合のラベリング
-    "ignoreDeps": ["mysql"],
+    "ignoreDeps": [
+        "mysql",
+        "laravel/framework", // laravelを除外する
+    ],
     "packageRules": [
         // PHP(Composer)
         {
