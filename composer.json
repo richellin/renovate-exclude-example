@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1.11",
-        "laravel/framework": "v8.83.26"
+        "laravel/framework": "v8.83.27"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7"
